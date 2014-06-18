@@ -1,9 +1,9 @@
 package ru.grey.domain.dao;
 
-import ru.grey.domain.model.Author;
+import ru.grey.domain.model.Book;
 
 /**
  * Created by stravin on 17.06.2014.
  */
-public interface BookDao extends LibraryDao<Author> {
+public interface BookDao extends BaseDao<Book> {
 }

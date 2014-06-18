@@ -21,6 +21,9 @@ public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
         this.type = type;
     }
 
+    protected BaseDaoImpl() {
+    }
+
     @Autowired
     protected SessionFactory sessionFactory;
 
