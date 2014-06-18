@@ -18,7 +18,7 @@ public class Book extends BaseEntity implements Serializable {
     private int year;
 
     @ManyToOne(targetEntity = Genre.class)
-    @JoinColumn(name = "genre", insertable = false, updatable = false)
+    @JoinColumn(name = "genre_id", insertable = false, updatable = false)
     private Genre genre;
 
     public Book() {
