@@ -13,6 +13,7 @@ public class Start {
     public static void main(String[] args) {
 
         AuthorService authorService = (AuthorService) classPathXmlApplicationContext.getBean("authorServiceImpl");
-        authorService.findById(Author.class, 1L);
+        Author author = authorService.findById(Author.class, 1L);
+        System.out.println(author);
     }
 }
