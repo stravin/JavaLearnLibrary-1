@@ -1,7 +1,12 @@
 package ru.grey.domain.model;
 
+import org.hibernate.annotations.CollectionOfElements;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by stravin on 17.06.2014.
@@ -20,6 +25,21 @@ public class Book extends BaseEntity implements Serializable {
     @ManyToOne(targetEntity = Genre.class)
     @JoinColumn(name = "genre_id", insertable = false, updatable = false)
     private Genre genre;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "ref_authors_books",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id"))
+//    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "books")
+    private Set<Author> authors = new HashSet<Author>();
+
+    public Set<Author> getAuthors() {
+        return this.authors;
+    }
+
+//    public void setAuthors(Set<Author> authors) {
+//        this.authors = authors;
+//    }
 
     public Book() {
     }
@@ -46,6 +66,7 @@ public class Book extends BaseEntity implements Serializable {
                 "name='" + name + '\'' +
                 ", year=" + year +
                 ", genre=" + genre +
+                ", authors=" + authors +
                 '}';
     }
 }

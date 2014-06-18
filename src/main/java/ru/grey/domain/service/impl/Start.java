@@ -14,12 +14,12 @@ public class Start {
 
     public static void main(String[] args) {
 
-        AuthorService authorService = (AuthorService) classPathXmlApplicationContext.getBean("authorServiceImpl");
-        Author author = authorService.findById(Author.class, 1L);
-        System.out.println(author);
+//        AuthorService authorService = (AuthorService) classPathXmlApplicationContext.getBean("authorServiceImpl");
+//        Author author = authorService.findById(Author.class, 1L);
+//        System.out.println(author);
 
         BookService bookService = (BookService) classPathXmlApplicationContext.getBean("bookServiceImpl");
-        Book book = bookService.findById(Book.class, 1L);
+        Book book = bookService.findById(Book.class, 3L);
         System.out.println(book);
     }
 }

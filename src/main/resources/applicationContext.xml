@@ -29,6 +29,9 @@
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
             </props>
         </property>
+        <property name="configLocation">
+            <value>hibernate.cfg.xml</value>
+        </property>
     </bean>
 
     <!--p:driverClassName="${jdbc.driverClassName}"-->

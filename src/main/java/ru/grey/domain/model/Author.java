@@ -1,9 +1,9 @@
 package ru.grey.domain.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by stravin on 17.06.2014.
@@ -15,13 +15,26 @@ public class Author extends BaseEntity implements Serializable {
 
     @Column(name = "fio")
     private String fio;
+
     @Column(name = "year_of_birth")
     private int yearOfBirth;
+
     @Column(name = "bio")
     private String biography;
 
-    //@ManyToMany(targetEntity = Book.class)
-    //List<Book> books;
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(name = "ref_authors_books",
+//            joinColumns = @JoinColumn(name = "author_id"),
+//            inverseJoinColumns = @JoinColumn(name = "book_id"))
+//    private Set<Book> books = new HashSet<Book>();
+//
+//    public Set<Book> getBooks() {
+//        return this.books;
+//    }
+//
+//    public void setBooks(Set<Book> books) {
+//        this.books = books;
+//    }
 
     public Author() {
     }
@@ -56,6 +69,7 @@ public class Author extends BaseEntity implements Serializable {
                 "fio='" + fio + '\'' +
                 ", yearOfBirth=" + yearOfBirth +
                 ", biography='" + biography + '\'' +
+                //", books=" + books +
                 '}';
     }
 }
