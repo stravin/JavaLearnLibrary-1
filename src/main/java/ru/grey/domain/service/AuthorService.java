@@ -9,5 +9,4 @@ import ru.grey.domain.model.Author;
 public interface AuthorService {
 
     Author findById(Class<Author> aClass, long id);
-
 }
