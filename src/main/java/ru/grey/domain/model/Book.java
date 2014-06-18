@@ -1,9 +1,6 @@
 package ru.grey.domain.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -16,15 +13,13 @@ public class Book extends BaseEntity implements Serializable {
 
     @Column(name = "name")
     private String name;
+
     @Column(name = "year")
     private int year;
-    @Column(name = "genre")
-    @ManyToOne(targetEntity = Genre.class)
-    private Genre genre;
-    //private int genre;
 
-    //@ManyToMany(targetEntity = Author.class)
-    //List<Author> authors;
+    @ManyToOne(targetEntity = Genre.class)
+    @JoinColumn(name = "genre", insertable = false, updatable = false)
+    private Genre genre;
 
     public Book() {
     }
