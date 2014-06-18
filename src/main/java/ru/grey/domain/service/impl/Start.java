@@ -14,7 +14,5 @@ public class Start {
 
         AuthorService authorService = (AuthorService) classPathXmlApplicationContext.getBean("authorServiceImpl");
         authorService.findById(Author.class, 1L);
-
     }
-
 }
