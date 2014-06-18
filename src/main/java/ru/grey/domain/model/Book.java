@@ -42,4 +42,13 @@ public class Book extends BaseEntity implements Serializable {
     public void setYear(int year) {
         this.year = year;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", year=" + year +
+                ", genre=" + genre +
+                '}';
+    }
 }

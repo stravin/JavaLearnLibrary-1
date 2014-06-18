@@ -48,4 +48,13 @@ public class Author extends BaseEntity implements Serializable {
     public void setBiography(String biography) {
         this.biography = biography;
     }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "fio='" + fio + '\'' +
+                ", yearOfBirth=" + yearOfBirth +
+                ", biography='" + biography + '\'' +
+                '}';
+    }
 }
