@@ -1,8 +1,10 @@
 package ru.grey.domain.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by stravin on 17.06.2014.
@@ -17,9 +19,9 @@ public class Book extends BaseEntity implements Serializable {
     @Column(name = "year")
     private int year;
     @Column(name = "genre")
-    //@ManyToOne(targetEntity = Genre.class)
-    //private Genre genre;
-    private int genre;
+    @ManyToOne(targetEntity = Genre.class)
+    private Genre genre;
+    //private int genre;
 
     //@ManyToMany(targetEntity = Author.class)
     //List<Author> authors;
