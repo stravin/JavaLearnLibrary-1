@@ -4,7 +4,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import ru.grey.domain.dao.BaseDao;
+import ru.grey.domain.dao.BaseDAO;
 import ru.grey.domain.model.BaseEntity;
 
 import java.util.List;
@@ -13,15 +13,15 @@ import java.util.List;
  * Created by stravin on 17.06.2014.
  */
 @Repository
-public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
+public abstract class BaseDAOImpl<T extends BaseEntity> implements BaseDAO<T> {
 
     private Class<T> type;
 
-    public BaseDaoImpl(Class<T> type) {
+    public BaseDAOImpl(Class<T> type) {
         this.type = type;
     }
 
-    protected BaseDaoImpl() {
+    protected BaseDAOImpl() {
     }
 
     @Autowired
@@ -30,6 +30,11 @@ public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     @Override
     public void add(T item) {
         getSession().save(item);
+    }
+
+    @Override
+    public void update(T item) {
+        getSession().update(item);
     }
 
     @Override
