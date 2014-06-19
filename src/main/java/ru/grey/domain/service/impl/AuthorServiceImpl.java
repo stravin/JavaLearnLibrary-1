@@ -7,6 +7,8 @@ import ru.grey.domain.dao.AuthorDao;
 import ru.grey.domain.model.Author;
 import ru.grey.domain.service.AuthorService;
 
+import java.util.List;
+
 /**
  * Created by stravin on 18.06.2014.
  */
@@ -20,5 +22,11 @@ public class AuthorServiceImpl implements AuthorService {
     @Transactional
     public Author findById(Class<Author> aClass, long id) {
         return authorDao.get(id);
+    }
+
+    @Override
+    @Transactional
+    public List<Author> findAll() {
+        return authorDao.getAll();
     }
 }
