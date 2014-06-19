@@ -3,7 +3,7 @@ package ru.grey.domain.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.grey.domain.dao.AuthorDao;
+import ru.grey.domain.dao.AuthorDAO;
 import ru.grey.domain.model.Author;
 import ru.grey.domain.service.AuthorService;
 
@@ -16,17 +16,29 @@ import java.util.List;
 public class AuthorServiceImpl implements AuthorService {
 
     @Autowired
-    private AuthorDao authorDao;
+    private AuthorDAO authorDAO;
 
     @Override
     @Transactional
-    public Author findById(Class<Author> aClass, long id) {
-        return authorDao.get(id);
+    public Author findById(long id) {
+        return authorDAO.get(id);
     }
 
     @Override
     @Transactional
     public List<Author> findAll() {
-        return authorDao.getAll();
+        return authorDAO.getAll();
+    }
+
+    @Override
+    @Transactional
+    public void addAuthor(Author author) {
+        authorDAO.add(author);
+    }
+
+    @Override
+    @Transactional
+    public void updateAuthor(Author author) {
+        authorDAO.update(author);
     }
 }

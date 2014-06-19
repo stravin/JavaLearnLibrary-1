@@ -10,7 +10,8 @@ import java.util.List;
 
 public interface BookService {
 
-    Book findById(Class<Book> aClass, long id);
-
+    Book findById(long id);
     List<Book> findAll();
+    void addBook(Book book);
+    void updateBook(Book book);
 }

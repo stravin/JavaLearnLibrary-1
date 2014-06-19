@@ -3,7 +3,7 @@ package ru.grey.domain.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.grey.domain.dao.BookDao;
+import ru.grey.domain.dao.BookDAO;
 import ru.grey.domain.model.Book;
 import ru.grey.domain.service.BookService;
 
@@ -16,17 +16,29 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
 
     @Autowired
-    private BookDao bookDao;
+    private BookDAO bookDAO;
 
     @Override
     @Transactional
-    public Book findById(Class<Book> aClass, long id) {
-        return bookDao.get(id);
+    public Book findById(long id) {
+        return bookDAO.get(id);
     }
 
     @Override
     @Transactional
     public List<Book> findAll() {
-        return bookDao.getAll();
+        return bookDAO.getAll();
+    }
+
+    @Override
+    @Transactional
+    public void addBook(Book book) {
+        bookDAO.add(book);
+    }
+
+    @Override
+    @Transactional
+    public void updateBook(Book book) {
+        bookDAO.update(book);
     }
 }

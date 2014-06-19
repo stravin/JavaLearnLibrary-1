@@ -10,7 +10,8 @@ import java.util.List;
 
 public interface AuthorService {
 
-    Author findById(Class<Author> aClass, long id);
-
+    Author findById(long id);
     List<Author> findAll();
+    void addAuthor(Author author);
+    void updateAuthor(Author author);
 }

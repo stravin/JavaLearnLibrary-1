@@ -3,7 +3,7 @@ package ru.grey.domain.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.grey.domain.dao.GenreDao;
+import ru.grey.domain.dao.GenreDAO;
 import ru.grey.domain.model.Genre;
 import ru.grey.domain.service.GenreService;
 
@@ -14,11 +14,11 @@ import ru.grey.domain.service.GenreService;
 public class GenreServiceImpl implements GenreService {
 
     @Autowired
-    private GenreDao genreDao;
+    private GenreDAO genreDAO;
 
     @Override
     @Transactional
     public Genre findById(Class<Genre> aClass, long id){
-        return genreDao.get(id);
+        return genreDAO.get(id);
     }
 }
