@@ -47,7 +47,7 @@ public class Start {
         }
 
         Book bookForModify = bookService.findById(1L);
-        bookForModify.setYear(1800);
+        bookForModify.setYear(2000);
         bookService.updateBook(bookForModify);
 
         List<Book> booksAfterMod = bookService.findAll();
